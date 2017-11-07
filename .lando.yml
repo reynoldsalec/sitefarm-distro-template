@@ -1,0 +1,9 @@
+name: sitefarm-distro-template
+recipe: drupal8
+config:
+  webroot: web
+services:
+  appserver:
+    build:
+      - "cd $LANDO_MOUNT && composer install"
+      - "cp -n $LANDO_MOUNT/web/sites/default/default.settings.lando.php $LANDO_MOUNT/web/sites/default/settings.php"
